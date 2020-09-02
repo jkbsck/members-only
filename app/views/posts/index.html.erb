@@ -4,6 +4,16 @@
   <div>Welcome and enjoy and welcome and enjoy and welcome and enjoy and welcome</div>
 </div>
 
+<div class="login-status">
+  <p>
+    <% if user_signed_in? %>
+      <%= current_user.email %> is logged in
+    <% else %>
+      Nobody is logged in so if you would like to be logged in feel free to do it but no pressure
+    <% end %>
+  </p>
+</div>
+
 <h1>Posts</h1>
 
 <table>
@@ -28,8 +38,15 @@
 
 <br>
 
+<% unless user_signed_in? %>
+  <%= link_to 'Log In', new_user_session_path %>
+  <% else %>
+  <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+<% end %>
 <%= link_to 'Sign Up', new_user_registration_path %>
-<%= link_to 'New Post', new_post_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Post', new_post_path %>
+<% end %>
 
 <div class="goodbye-message">
   <h2>Last one turn off the lights</h2>
