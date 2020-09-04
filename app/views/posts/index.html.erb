@@ -7,7 +7,7 @@
 <div class="login-status">
   <p>
     <% if user_signed_in? %>
-      <%= current_user.email %> is logged in
+      <%= current_user.username %> is logged in
     <% else %>
       Nobody is logged in so if you would like to be logged in feel free to do it but no pressure
     <% end %>
@@ -19,14 +19,16 @@
 <table>
   <thead>
     <tr>
+      <th>Author</th>
       <th>Post</th>
-      <th colspan="3">lol</th>
+      <th colspan="3">Do ya thang</th>
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <td><%= post.user.username %></td>
         <td><%= post.post %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
