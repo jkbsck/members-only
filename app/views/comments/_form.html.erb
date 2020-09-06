@@ -1,8 +1,8 @@
-<%= form_with(model: comment, local: true) do |form| %>
+<%= form_for [ @post, @comment ] do |f| %>
   <div class="comment-form">
-    <%= form.text_area :comment, size: "90x6" %>
+    <%= f.text_area :comment, size: "90x6" %>
   </div>
   <div class="actions">
-    <%= form.submit "Create" %>
+    <%= f.submit "Create" %>
   </div>
 <% end %>
