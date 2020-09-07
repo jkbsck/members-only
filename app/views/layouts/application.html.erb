@@ -13,6 +13,16 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <div class="login-status">
+      <p>
+        <% if user_signed_in? %>
+          <b><%= current_user.username %> </b>is logged in
+        <% else %>
+          Nobody is logged in so if you would like to be logged in feel free to do it but no pressure
+        <% end %>
+      </p>
+    </div>
+
     <%= yield %>
   </body>
 </html>

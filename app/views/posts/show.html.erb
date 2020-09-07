@@ -3,7 +3,9 @@
 <div>
   <strong>Post:</strong>
     <p>
-      <strong><i><%= @post.user.username %>:</i></strong>
+      <% if user_signed_in? %>
+        <strong><i><%= @post.user.username %>:</i></strong>
+      <% end %>
       <%= @post.post %>
     </p>
 </div>
@@ -15,7 +17,9 @@
         <br><%= comment.comment %>
         <div class="comment-created-at">
           <%= comment.created_at %><br>
-          <%= link_to 'Delete', [ comment.post, comment ], method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% if current_user == comment.user %>
+            <%= link_to 'Delete', [ comment.post, comment ], method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
       </li>
     <% end %>
