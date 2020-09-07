@@ -11,7 +11,8 @@ p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  border: solid;
+  margin: 20px;
+  //border: solid;
 }
 
 pre {
@@ -34,13 +35,15 @@ a {
 }
 
 th {
-  padding-bottom: 5px;
-  border: solid;
+  padding-bottom: 15px;
+  border: solid 1px;
   border-color: saturate($color: #095090, $amount: 0);
+  border-radius: 10px;
+  border-right: 20px;
 }
 
 td {
-  padding: 0 5px 7px;
+  padding: 10px 5px 7px;
 }
 
 div {
