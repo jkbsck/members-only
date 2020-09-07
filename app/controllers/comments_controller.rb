@@ -26,6 +26,19 @@ class CommentsController < ApplicationController
   
     redirect_to post_path(@comment.post)
   end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+		@comment = @post.comments.find(params[:id])
+		@comment.destroy
+		redirect_to post_path(@post)
+
+    # @comment.destroy
+    # #@comment = Comment.find(params[:id]).destroy
+    # flash.notice = "Comment deleted!"
+    # #@post = Post.find(params[:id])
+    # redirect_to post_path
+  end
   
   def comment_params
     params.require(:comment).permit(:comment)
